@@ -3,92 +3,174 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Вокруг Света — Адаптивный Дизайн</title>
+    <title>Вёрстка и валидация форм — Клуб Путешественников</title>
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <header class="header">
-        <div class="container">
-            <h1 class="logo">Вокруг Света</h1>
-            <nav class="nav">
-                <button class="nav-toggle" aria-label="Открыть меню">☰</button>
-                <ul class="nav-menu">
-                    <li><a href="#">Главная</a></li>
-                    <li><a href="#">О нас</a></li>
-                    <li><a href="#">Маршруты</a></li>
-                    <li><a href="#">Галерея</a></li>
-                    <li><a href="#">Контакты</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <div class="container">
+        <header class="header">
+            <h1>Регистрация путешественника</h1>
+            <p>Заполните форму ниже для создания аккаунта и доступа к секретным гидам</p>
+        </header>
 
-    <main class="main">
-        <section class="hero">
-            <div class="container">
-                <h2>Твой идеальный маршрут</h2>
-                <p>Современные авторские туры и полезные лайфхаки для путешествий на любых устройствах</p>
-            </div>
-        </section>
+        <main class="main">
+            <form class="registration-form" id="registrationForm" novalidate>
 
-        <section class="features">
-            <div class="container">
-                <h2 class="mb-2">Наши преимущества</h2>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <h3>Адаптивность</h3>
-                        <p>Наш блог удобно читать со смартфона в палатке или с монитора дома.</p>
+                <!-- Личная информация -->
+                <fieldset class="form-section">
+                    <legend>Личная информация</legend>
+
+                    <div class="form-group">
+                        <label for="firstName" class="required">Имя</label>
+                        <input type="text" id="firstName" name="firstName" required minlength="2" maxlength="50" placeholder="Введите ваше имя">
+                        <span class="error-message" id="firstNameError"></span>
                     </div>
-                    <div class="feature-card">
-                        <h3>Скорость</h3>
-                        <p>Быстрая загрузка страниц даже при слабом мобильном интернете.</p>
+
+                    <div class="form-group">
+                        <label for="lastName" class="required">Фамилия</label>
+                        <input type="text" id="lastName" name="lastName" required minlength="2" maxlength="50" placeholder="Введите вашу фамилию">
+                        <span class="error-message" id="lastNameError"></span>
                     </div>
-                    <div class="feature-card">
-                        <h3>Доступность</h3>
-                        <p>Удобный интерфейс и понятная навигация для всех пользователей.</p>
+
+                    <div class="form-group">
+                        <label for="email" class="required">Email</label>
+                        <input type="email" id="email" name="email" required placeholder="example@mail.com">
+                        <span class="error-message" id="emailError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Телефон</label>
+                        <input type="tel" id="phone" name="phone" pattern="[\+]\d{1,3}\s?\(?\d{1,5}\)?\s?\d{1,3}[\-]\d{2}[\-]\d{2}" placeholder="+7 (999) 999-99-99">
+                        <span class="error-message" id="phoneError"></span>
+                    </div>
+                </fieldset>
+
+                <!-- Пароль -->
+                <fieldset class="form-section">
+                    <legend>Безопасность</legend>
+
+                    <div class="form-group">
+                        <label for="password" class="required">Пароль</label>
+                        <input type="password" id="password" name="password" required minlength="8" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$" placeholder="Не менее 8 символов">
+                        <span class="error-message" id="passwordError"></span>
+                        <div class="password-requirements">
+                            Пароль должен содержать: заглавные и строчные буквы, цифры
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirmPassword" class="required">Подтверждение пароля</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="Повторите пароль">
+                        <span class="error-message" id="confirmPasswordError"></span>
+                    </div>
+                </fieldset>
+
+                <!-- Дополнительная информация -->
+                <fieldset class="form-section">
+                    <legend>Дополнительная информация</legend>
+
+                    <div class="form-group">
+                        <label for="birthDate">Дата рождения</label>
+                        <input type="date" id="birthDate" name="birthDate" min="1900-01-01" max="2024-12-31">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="country">Любимая страна для туризма</label>
+                        <select id="country" name="country">
+                            <option value="">Выберите страну</option>
+                            <option value="ru">Россия</option>
+                            <option value="kz">Казахстан</option>
+                            <option value="by">Беларусь</option>
+                            <option value="other">Другая</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Пол</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="gender" value="male">
+                                <span class="radio-custom"></span>
+                                Мужской
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="gender" value="female">
+                                <span class="radio-custom"></span>
+                                Женский
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="gender" value="other">
+                                <span class="radio-custom"></span>
+                                Другой
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Интересы в поездках</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="interests" value="programming">
+                                <span class="checkbox-custom"></span>
+                                Активный отдых / Трекинг
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="interests" value="design">
+                                <span class="checkbox-custom"></span>
+                                Культура и Музеи
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="interests" value="marketing">
+                                <span class="checkbox-custom"></span>
+                                Пляжный туризм
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bio">О себе / Опыт путешествий</label>
+                        <textarea id="bio" name="bio" rows="4" maxlength="500" placeholder="Расскажите немного о себе..."></textarea>
+                        <div class="char-counter">
+                            <span id="charCount">0</span>/500 символов
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Соглашения и кнопки -->
+                <div class="form-section">
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="terms" name="terms" required>
+                            <span class="checkbox-custom"></span>
+                            Я принимаю <a href="#">условия использования</a> и <a href="#">политику конфиденциальности</a>
+                        </label>
+                        <span class="error-message" id="termsError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="newsletter" name="newsletter">
+                            <span class="checkbox-custom"></span>
+                            Я хочу получать новостную рассылку лучших маршрутов
+                        </label>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+                        <button type="reset" class="btn btn-secondary">Очистить форму</button>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <section class="content">
-            <div class="container">
-                <article class="main-content">
-                    <h2 class="mb-1">Как путешествовать бюджетно в 2026 году?</h2>
-                    <p class="mb-1">Это главная статья с важной информацией о планировании поездок, поиске дешевых хостелов и секретных скидках на авиабилеты.</p>
-                    <img src="https://unsplash.com" alt="Приключение на машине" class="responsive-img">
-                </article>
-                <aside class="sidebar">
-                    <h3 class="mb-1">Полезные виджеты</h3>
-                    <p>Курсы валют, погода в популярных туристических точках мира и чек-листы для сборки рюкзака.</p>
-                </aside>
-            </div>
-        </section>
-    </main>
+            </form>
+        </main>
 
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 Вокруг Света. Адаптивный сайт. Все права защищены.</p>
-        </div>
-    </footer>
+        <footer class="footer">
+            <p>&copy; 2026 Формы и валидация. Клуб Путешественников.</p>
+        </footer>
+    </div>
 
-    <!-- Мобильное меню на JS (Часть 5) -->
-    <script>document.addEventListener('DOMContentLoaded', function() {
-            const navToggle = document.querySelector('.nav-toggle');
-            const navMenu = document.querySelector('.nav-menu');
-
-            navToggle.addEventListener('click', function() {
-                navMenu.classList.toggle('active');
-            });
-
-            // Закрытие меню при клике на любую ссылку
-            document.querySelectorAll('.nav-menu a').forEach(link => {
-                link.addEventListener('click', () => {
-                    navMenu.classList.remove('active');
-                });
-            });
-        });</script>
+    <script src="script.js"></script>
 </body>
 </html>
