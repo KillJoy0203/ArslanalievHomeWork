@@ -8,5 +8,9 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: #333;
-    background-color: #f8f9fa;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
 }

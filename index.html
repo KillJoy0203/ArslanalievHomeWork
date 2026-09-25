@@ -3,59 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Блог о путешествиях — CSS Grid Layout</title>
+    <title>Вокруг Света — Адаптивный Дизайн</title>
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <div class="grid-container">
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">Вокруг Света</h1>
+            <nav class="nav">
+                <button class="nav-toggle" aria-label="Открыть меню">☰</button>
+                <ul class="nav-menu">
+                    <li><a href="#">Главная</a></li>
+                    <li><a href="#">О нас</a></li>
+                    <li><a href="#">Маршруты</a></li>
+                    <li><a href="#">Галерея</a></li>
+                    <li><a href="#">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-        <header class="header">
-            <h1>Мир Глазами Путешественника</h1>
-            <p>Исследуй планету вместе с нами</p>
-        </header>
+    <main class="main">
+        <section class="hero">
+            <div class="container">
+                <h2>Твой идеальный маршрут</h2>
+                <p>Современные авторские туры и полезные лайфхаки для путешествий на любых устройствах</p>
+            </div>
+        </section>
 
-        <nav class="navigation">
-            <h2>Навигация</h2>
-            <ul>
-                <li><a href="#">Главная</a></li>
-                <li><a href="#">Маршруты</a></li>
-                <li><a href="#">Лайфхаки</a></li>
-                <li><a href="#">Галерея</a></li>
-                <li><a href="#">Контакты</a></li>
-            </ul>
-        </nav>
+        <section class="features">
+            <div class="container">
+                <h2 class="mb-2">Наши преимущества</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3>Адаптивность</h3>
+                        <p>Наш блог удобно читать со смартфона в палатке или с монитора дома.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Скорость</h3>
+                        <p>Быстрая загрузка страниц даже при слабом мобильном интернете.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Доступность</h3>
+                        <p>Удобный интерфейс и понятная навигация для всех пользователей.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <main class="main-content">
-            <article class="featured">
-                <h2>Главное приключение года: Экспедиция в Исландию</h2>
-                <p>Это главная статья на странице. Рассказываем о ледниках, гейзерах, черных пляжах и о том, как спланировать бюджетную поездку в самую космическую страну Европы.</p>
-            </article>
+        <section class="content">
+            <div class="container">
+                <article class="main-content">
+                    <h2 class="mb-1">Как путешествовать бюджетно в 2026 году?</h2>
+                    <p class="mb-1">Это главная статья с важной информацией о планировании поездок, поиске дешевых хостелов и секретных скидках на авиабилеты.</p>
+                    <img src="https://unsplash.com" alt="Приключение на машине" class="responsive-img">
+                </article>
+                <aside class="sidebar">
+                    <h3 class="mb-1">Полезные виджеты</h3>
+                    <p>Курсы валют, погода в популярных туристических точках мира и чек-листы для сборки рюкзака.</p>
+                </aside>
+            </div>
+        </section>
+    </main>
 
-            <section class="gallery">
-                <div class="gallery-item">📸 Исландия</div>
-                <div class="gallery-item">📸 Киото</div>
-                <div class="gallery-item">📸 Рим</div>
-                <div class="gallery-item">📸 Бали</div>
-                <div class="gallery-item">📸 Нью-Йорк</div>
-                <div class="gallery-item">📸 Альпы</div>
-            </section>
-        </main>
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Вокруг Света. Адаптивный сайт. Все права защищены.</p>
+        </div>
+    </footer>
 
-        <aside class="sidebar">
-            <h2>Свежие заметки</h2>
-            <p>Дополнительная информация и виджеты. Читайте также: Что взять с собой в горы? Обзор трекинговой обуви 2026 года.</p>
-        </aside>
+    <!-- Мобильное меню на JS (Часть 5) -->
+    <script>document.addEventListener('DOMContentLoaded', function() {
+            const navToggle = document.querySelector('.nav-toggle');
+            const navMenu = document.querySelector('.nav-menu');
 
-        <footer class="footer">
-            <div class="footer-section">📞 Контакты</div>
-            <div class="footer-section">📱 Соцсети</div>
-            <div class="footer-section">🤝 Партнеры</div>
-            <div class="footer-section">✉️ Подписка</div>
-        </footer>
+            navToggle.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+            });
 
-    </div>
-
+            // Закрытие меню при клике на любую ссылку
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                });
+            });
+        });</script>
 </body>
 </html>
