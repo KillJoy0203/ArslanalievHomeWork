@@ -1,0 +1,134 @@
+/* Переменные для уникальных цветов */
+:root {
+    --main-color: #1a5f7a;
+    --orange-accent: #f26419;
+    --light-gray: #f7f9fa;
+    --dark-text: #222222;
+}
+
+/* 1. Селекторы по тегу и наследование */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--dark-text);
+    padding: 25px;
+}
+
+h1 {
+    color: var(--main-color);
+}
+
+/* 2. Селекторы по классу */
+.main-header {
+    background-color: var(--light-gray);
+    padding: 25px;
+    border-bottom: 3px solid var(--main-color);
+}
+
+.subtitle {
+    font-style: italic;
+    color: #555555;
+}
+
+/* 3. Селектор по ID */
+#site-title {
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+/* 4. Комбинированные селекторы */
+.content > article {
+    background-color: #ffffff;
+    padding: 20px;
+    margin: 15px 0;
+}
+
+.post p {
+    margin-bottom: 12px;
+}
+
+h2 + p {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.card {
+    border: 2px solid #e0e0e0;
+    padding: 15px;
+    border-radius: 6px;
+    position: relative;
+}
+
+/* 5. Демонстрация каскада и специфичности */
+p {
+    color: #000000;
+    font-size: 16px;
+}
+
+.post p {
+    color: #0f4c5c;
+}
+
+.featured-post p {
+    color: #5c677d;
+}
+
+.featured-post .intro {
+    color: var(--main-color);
+    font-size: 18px;
+}
+
+/* Специфичность списков */
+.important {
+    color: #d90429;
+    font-weight: bold;
+}
+
+li.important {
+    color: #9b2226;
+    text-decoration: underline;
+}
+
+ul li {
+    color: #2a6f97;
+}
+
+.important {
+    color: var(--orange-accent) !important; /* Переопределяет всё */
+}
+
+/* 6. Псевдоклассы и псевдоэлементы */
+li:hover {
+    background-color: #e5e5e5;
+    cursor: pointer;
+}
+
+li:nth-child(odd) {
+    background-color: #f8f9fa;
+}
+
+.main-header:hover {
+    background-color: #eaeaea;
+    transition: background-color 0.3s;
+}
+
+p::first-line {
+    font-weight: bold;
+}
+
+.post h2::after {
+    content: " ★";
+    color: var(--orange-accent);
+}
+
+.card::before {
+    content: "→ ";
+    color: green;
+}
+
+/* Бонус: Адаптивность (Медиа-запрос) */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+}
