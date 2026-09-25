@@ -3,56 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мир Путешествий — Flexbox Layout</title>
+    <title>Блог о путешествиях — CSS Grid Layout</title>
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <header class="header">
-        <h1>Вокруг Света: Блог о Путешествиях</h1>
-    </header>
+    <div class="grid-container">
 
-    <main class="main">
+        <header class="header">
+            <h1>Мир Глазами Путешественника</h1>
+            <p>Исследуй планету вместе с нами</p>
+        </header>
+
         <nav class="navigation">
             <h2>Навигация</h2>
             <ul>
                 <li><a href="#">Главная</a></li>
-                <li><a href="#">Европа</a></li>
-                <li><a href="#">Азия</a></li>
-                <li><a href="#">Америка</a></li>
+                <li><a href="#">Маршруты</a></li>
+                <li><a href="#">Лайфхаки</a></li>
+                <li><a href="#">Галерея</a></li>
                 <li><a href="#">Контакты</a></li>
             </ul>
         </nav>
 
-        <section class="content">
-            <article class="card">
-                <h3>Рим, Италия</h3>
-                <p>Рим поражает своими древними памятниками, Колизеем и богатейшей многовековой историей.</p>
+        <main class="main-content">
+            <article class="featured">
+                <h2>Главное приключение года: Экспедиция в Исландию</h2>
+                <p>Это главная статья на странице. Рассказываем о ледниках, гейзерах, черных пляжах и о том, как спланировать бюджетную поездку в самую космическую страну Европы.</p>
             </article>
-            <article class="card">
-                <h3>Токио, Япония</h3>
-                <p>Удивительный мегаполис, где неоновые небоскребы будущего гармонично сочетаются со старинными храмами.</p>
-            </article>
-            <article class="card">
-                <h3>Париж, Франция</h3>
-                <p>Город огней, романтики и уличных кафе. Идеальное место для неспешных прогулок вдоль Сены.</p>
-            </article>
-        </section>
+
+            <section class="gallery">
+                <div class="gallery-item">📸 Исландия</div>
+                <div class="gallery-item">📸 Киото</div>
+                <div class="gallery-item">📸 Рим</div>
+                <div class="gallery-item">📸 Бали</div>
+                <div class="gallery-item">📸 Нью-Йорк</div>
+                <div class="gallery-item">📸 Альпы</div>
+            </section>
+        </main>
 
         <aside class="sidebar">
-            <h2>Популярное</h2>
-            <p>Сейчас читают: ТОП-10 мест для осеннего отпуска, лайфхаки при покупке авиабилетов.</p>
+            <h2>Свежие заметки</h2>
+            <p>Дополнительная информация и виджеты. Читайте также: Что взять с собой в горы? Обзор трекинговой обуви 2026 года.</p>
         </aside>
-    </main>
 
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">📍 О проекте</div>
-            <div class="footer-section">📝 Карта сайта</div>
-            <div class="footer-section">🔒 Privacy Policy</div>
-        </div>
-    </footer>
+        <footer class="footer">
+            <div class="footer-section">📞 Контакты</div>
+            <div class="footer-section">📱 Соцсети</div>
+            <div class="footer-section">🤝 Партнеры</div>
+            <div class="footer-section">✉️ Подписка</div>
+        </footer>
+
+    </div>
 
 </body>
 </html>
